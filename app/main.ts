@@ -15,8 +15,12 @@ function question() {
       return;
     }
     if (command === "echo") {
+      console.log("args", args);
       console.log(args.join(" "));
       question();
+    }
+    else {
+      console.log(`${answer}: command not found`);
     }
     question();
   });
