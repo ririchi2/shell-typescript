@@ -7,11 +7,17 @@ const rl = createInterface({
 
 function question() {
   rl.question("$ ", (answer) => {
-    if (answer === "exit 0") {
+    let answerArray = answer.split(" ");
+    let command = answerArray[0];
+    let args = answerArray.slice(1);
+    if (command === "exit" && args[0] === "0") {
       rl.close();
       return;
     }
-    console.log(`${answer}: command not found`);
+    if (command === "echo") {
+      console.log(args.join(" "));
+      question();
+    }
     question();
   });
 }
