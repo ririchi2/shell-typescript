@@ -7,10 +7,7 @@ const rl = createInterface({
 
 function question() {
   rl.question("$ ", (answer) => {
-    if (answer === "exit 0") {
-      rl.close();
-      return;
-    }
+
     console.log(`${answer}: command not found\n`);
     question();
   });
