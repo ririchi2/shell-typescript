@@ -39,7 +39,7 @@ function question() {
         console.log("type is a shell builtin");
         question();
       } else {
-        console.log(`${args[0]}: command not found`);
+        console.log(`${args[0]}: not found`);
         question();
       }
     }
