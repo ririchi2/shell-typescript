@@ -74,7 +74,7 @@ function question() {
       const commandPath = findInPath(command);
       if (commandPath) {
         // Ejecutar el comando externo con sus argumentos
-        const childProcess = spawn(commandPath, args);
+        const childProcess = spawn(command, args);
 
         childProcess.stdout.on("data", (data) => {
           process.stdout.write(data);
