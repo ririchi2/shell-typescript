@@ -33,7 +33,7 @@ function question() {
     let answerArray = answer.split(" ");
     let command = answerArray[0];
     let args = answerArray.slice(1);
-    let builtinCommands = ["echo", "exit", "type"];
+    let builtinCommands = ["echo", "exit", "type", "pwd"];
 
     // Leemos argumentos builtin
     if (command === "exit" && args[0] === "0") {
