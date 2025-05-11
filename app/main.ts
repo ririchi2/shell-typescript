@@ -8,6 +8,7 @@ const rl = createInterface({
 });
 
 const pathDir = process.env.PATH ? process.env.PATH.split(":") : [];
+const homeDir = process.env.HOME || "";
 
 function isExecutable(filePath: string): boolean {
   try {
@@ -30,6 +31,7 @@ function findInPath(command: string): string | null {
 
 function question() {
   rl.question("$ ", (answer) => {
+    console.log("richito", homeDir);
     let answerArray = answer.split(" ");
     let command = answerArray[0];
     let args = answerArray.slice(1);
@@ -86,10 +88,19 @@ function question() {
         question();
         return; // Añadir return para evitar continuar
       }
+      if (args[0] === "~") {
+        const newDir = homeDir;
+        try {
+          process.chdir(newDir);
+        }
+        catch (err) {
+          console.log(`cd: ${newDir}: No such file or directory`);
+        }
+        question();
+      }
       const newDir = args[0];
       try {
         process.chdir(newDir);
-        // console.log(`Changed directory to ${newDir}`);
       }
       catch (err) {
         console.log(`cd: ${newDir}: No such file or directory`);
