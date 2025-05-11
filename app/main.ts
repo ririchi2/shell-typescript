@@ -31,7 +31,6 @@ function findInPath(command: string): string | null {
 
 function question() {
   rl.question("$ ", (answer) => {
-    console.log("richito", homeDir);
     let answerArray = answer.split(" ");
     let command = answerArray[0];
     let args = answerArray.slice(1);
