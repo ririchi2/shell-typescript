@@ -74,7 +74,7 @@ function question() {
       // const currentDir = process.cwd();
       // console.log(currentDir);
       // question();
-      console.log(__dirname);
+      console.log(process.cwd());
       question();
     }
     else {
