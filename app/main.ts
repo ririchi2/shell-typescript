@@ -75,6 +75,27 @@ function question() {
       console.log(currentDir);
       question();
     }
+    else if (command === "cd") {
+      if (args.length === 0) {
+        console.log("cd: missing argument");
+        question();
+        return; // Añadir return para evitar continuar
+      }
+      if (args.length > 1) {
+        console.log("cd: too many arguments");
+        question();
+        return; // Añadir return para evitar continuar
+      }
+      const newDir = args[0];
+      try {
+        process.chdir(newDir);
+        // console.log(`Changed directory to ${newDir}`);
+      }
+      catch (err) {
+        console.log(`cd: ${newDir}: No such file or directory`);
+      }
+      question();
+    }
     else {
       // Comando externo
       const commandPath = findInPath(command);
