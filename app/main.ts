@@ -71,10 +71,8 @@ function question() {
     }
     else if (command === "pwd") {
       // Obtener el directorio de trabajo actual
-      // const currentDir = process.cwd();
-      // console.log(currentDir);
-      // question();
-      console.log(process.cwd());
+      const currentDir = process.cwd();
+      console.log(currentDir);
       question();
     }
     else {
