@@ -96,15 +96,16 @@ function question() {
           console.log(`cd: ${newDir}: No such file or directory`);
         }
         question();
+      } else {
+        const newDir = args[0];
+        try {
+          process.chdir(newDir);
+        }
+        catch (err) {
+          console.log(`cd: ${newDir}: No such file or directory`);
+        }
+        question();
       }
-      const newDir = args[0];
-      try {
-        process.chdir(newDir);
-      }
-      catch (err) {
-        console.log(`cd: ${newDir}: No such file or directory`);
-      }
-      question();
     }
     else {
       // Comando externo
