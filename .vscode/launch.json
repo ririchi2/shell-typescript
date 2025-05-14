@@ -1,0 +1,32 @@
+// {
+//   // Use IntelliSense to learn about possible attributes.
+//   // Hover to view descriptions of existing attributes.
+//   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//   "version": "0.2.0",
+//   "configurations": [
+
+//     {
+//       "type": "node",
+//       "name": "Run Current File",
+//       "request": "launch",
+//       "program": "/Users/richi/workspace/codecrafters-shell-typescript/app/main.ts",
+//       "console": "integratedTerminal",
+//       "sourceMaps": true,
+//     }
+//   ]
+// }
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Shell",
+      "program": "/Users/richi/workspace/codecrafters-shell-typescript/app/main.js",
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}

@@ -36,7 +36,7 @@ function parseCommand(input: string): string[] {
   let inQuotes = false;
   for (let i = 0; i < input.length; i++) {
     const char = input[i];
-    if (char === '"') {
+    if (char === '"' || char === "'") {
       inQuotes = !inQuotes;
     } else if (char === " " && !inQuotes) {
       if (current.length > 0) {
