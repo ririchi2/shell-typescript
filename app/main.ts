@@ -29,9 +29,37 @@ function findInPath(command: string): string | null {
   return null;
 }
 
+function parseCommand(input: string): string[] {
+  const result: string[] = [];
+  debugger;
+  let current = "";
+  let inQuotes = false;
+  for (let i = 0; i < input.length; i++) {
+    const char = input[i];
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === " " && !inQuotes) {
+      if (current.length > 0) {
+        result.push(current);
+        current = "";
+      }
+    } else {
+      current += char;
+    }
+  }
+  if (current.length > 0) {
+    result.push(current);
+  }
+  if (inQuotes) {
+    console.error("Error: Unmatched quotes in command");
+    return [];
+  }
+  return result;
+}
+
 function question() {
   rl.question("$ ", (answer) => {
-    let answerArray = answer.split(" ");
+    let answerArray = parseCommand(answer);
     let command = answerArray[0];
     let args = answerArray.slice(1);
     let builtinCommands = ["echo", "exit", "type", "pwd"];
